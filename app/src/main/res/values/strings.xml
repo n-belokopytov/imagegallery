@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">affinitas</string>
+    <string name="app_name">See Ya</string>
+    <string name="empty_view">Empty list</string>
+    <string name="add_first_picture">Start uploading</string>
+    <string name="start_adding">Have pictures that CIA have not seen yet? \n Upload the first hundred for free!</string>
+    <string name="gallery_title">See Ya Gallery</string>
 </resources>

@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:src="@drawable/empty_gallery_background"
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh_layout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</ConstraintLayout>
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_recycler_view"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <FrameLayout
+            android:id="@+id/empty_state"
+            android:background="@drawable/empty_gallery_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@color/colorFade"
+                android:contentDescription="@string/empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:padding="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/IntroText"
+                android:layout_gravity="center_horizontal|top"
+                android:gravity="center"
+                android:maxLength="100"
+                android:text="@string/start_adding"/>
+            <Button
+                style="@style/ButtonText"
+                android:id="@+id/add_first_btn"
+                android:text="@string/add_first_picture"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"/>
+        </FrameLayout>
+    </FrameLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
