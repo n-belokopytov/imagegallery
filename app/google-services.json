@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "564185348098",
+    "firebase_url": "https://cyagallery-c2e0c.firebaseio.com",
+    "project_id": "cyagallery-c2e0c",
+    "storage_bucket": "cyagallery-c2e0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564185348098:android:18ff77df02eec93b",
+        "android_client_info": {
+          "package_name": "com.challenge.sparkgallery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564185348098-sjmrjiseo5hj0t16282c8679rlli6ots.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.challenge.sparkgallery",
+            "certificate_hash": "486b0792643e123d64a5277d03c98589e01c349f"
+          }
+        },
+        {
+          "client_id": "564185348098-sslv5f7hiertoa2ojuoatgno44urjqig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAroSXvosaP-rI2YN2uweQQcsTWpaXjlZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564185348098-sslv5f7hiertoa2ojuoatgno44urjqig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

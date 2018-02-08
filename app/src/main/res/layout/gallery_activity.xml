@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/refresh_layout"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
@@ -8,38 +10,83 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/my_recycler_view"
+            android:id="@+id/gallery_recycler_view"
             android:scrollbars="vertical"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-        <FrameLayout
+
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/empty_state"
-            android:background="@drawable/empty_gallery_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ImageView
-                android:src="@color/colorFade"
-                android:contentDescription="@string/empty_view"
+                android:id="@+id/background_photo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:contentDescription="@string/empty_view"
+                android:scaleType="centerCrop"
+                android:src="@drawable/empty_gallery_background"/>
+
+            <ImageView
+                android:id="@+id/image_fade"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/empty_view"
+                android:src="@color/colorFade"/>
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginBottom="36dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_capture"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <TextView
-                android:padding="16dp"
+                android:id="@+id/textView"
+                style="@style/IntroText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/IntroText"
-                android:layout_gravity="center_horizontal|top"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:maxLength="100"
-                android:text="@string/start_adding"/>
+                android:padding="16dp"
+                android:text="@string/start_adding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <Button
-                style="@style/ButtonText"
                 android:id="@+id/add_first_btn"
-                android:text="@string/add_first_picture"
-                android:layout_gravity="center_horizontal|bottom"
+                style="@style/RegularTextButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"/>
-        </FrameLayout>
+                android:layout_height="52dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="32dp"
+                android:text="@string/add_first_picture"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_add"
+            android:visibility="gone"
+            fab:fab_colorNormal="@color/colorPrimary"
+            tools:visibility="visible" />
     </FrameLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

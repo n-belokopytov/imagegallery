@@ -10,5 +10,8 @@ interface ImageGalleryView: BaseView {
     fun refresh()
     fun loadGalleryPage(page: Int)
     fun addNewImage()
-    fun addImagesToAdapter(images: List<Image>)
+    fun addImages(images: List<Image>)
+    fun showList()
+    fun showEmpty()
+    fun login()
 }

@@ -4,4 +4,10 @@
     <string name="add_first_picture">Start uploading</string>
     <string name="start_adding">Have pictures that CIA have not seen yet? \n Upload the first hundred for free!</string>
     <string name="gallery_title">See Ya Gallery</string>
+    <string name="retry">Try again</string>
+    <string name="error_title">Something is broken, take a look:</string>
+    <string name="accept">Move on</string>
+    <string name="auth_title">Introduce yourself</string>
+    <string name="gallery_menu_list">List</string>
+    <string name="gallery_menu_grid">Grid</string>
 </resources>

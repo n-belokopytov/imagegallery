@@ -6,7 +6,7 @@ import io.reactivex.disposables.CompositeDisposable
  * Created by 805640 on 04.02.2018.
  */
 abstract class BasePresenter<MVPView: BaseView> {
-    var disposable: CompositeDisposable? = null
+    var disposable: CompositeDisposable? = CompositeDisposable()
     protected var view: MVPView? = null
 
     fun attachView(view: MVPView) {

@@ -1,6 +1,7 @@
 package com.challenge.sparkgallery.util
 
 import android.content.Context
+import com.challenge.sparkgallery.android.features.auth.AuthActivity
 import com.challenge.sparkgallery.android.features.gallery.ImageGalleryActivity
 
 /**
@@ -10,6 +11,10 @@ class Navigator {
     companion object {
         fun invokeGallery(context: Context) {
             context.startActivity(ImageGalleryActivity.getIntent(context))
+        }
+
+        fun invokeAuth(context: Context) {
+            context.startActivity(AuthActivity.getIntent(context))
         }
     }
 }

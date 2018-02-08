@@ -5,4 +5,8 @@ import java.util.*
 /**
  * Created by 805640 on 04.02.2018.
  */
-data class Image(val imageUrl: String, val title: String, val date:Date)
+data class Image(var id: String = "",
+                 var authorId: String = "",
+                 var imageUrl: String = "",
+                 var title: String = "",
+                 var uploadedAt: Date = Date())

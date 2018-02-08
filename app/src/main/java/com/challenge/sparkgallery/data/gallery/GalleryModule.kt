@@ -1,5 +1,6 @@
 package com.challenge.sparkgallery.data.gallery
 
+import com.challenge.sparkgallery.data.gallery.network.GalleryAPI
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
