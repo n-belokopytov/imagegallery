@@ -1,5 +1,6 @@
 # What is imagegallery?
 This project is an attempt to make a market-ready Minimum Viable Product of a photo gallery app in less than one week. It's both a sample of my work under pressure and illustrates my approach towards product-first prioritisation.
+
 *Feel free to reuse any of the code here in exchange of giving me feedback on it.*
 
 I did my best to structure code in a way that would later allow modular iteration on the most aspects of it and unit-testing the business logic as soon as the decision is made to carry on with this product direction.
