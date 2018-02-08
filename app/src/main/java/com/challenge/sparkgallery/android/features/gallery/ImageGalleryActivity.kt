@@ -18,13 +18,9 @@ import com.challenge.sparkgallery.android.CYAApplication
 import com.challenge.sparkgallery.data.gallery.model.Image
 import com.challenge.sparkgallery.android.common.BaseActivity
 import com.challenge.sparkgallery.android.common.di.DaggerUIComponent
-import com.challenge.sparkgallery.util.Navigator
-import com.esafirm.imagepicker.features.ImagePicker
 import kotlinx.android.synthetic.main.gallery_activity.*
 import javax.inject.Inject
-import android.view.MenuInflater
 import com.challenge.sparkgallery.android.features.auth.AuthActivity
-import io.reactivex.internal.util.NotificationLite.getError
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 
@@ -70,8 +66,20 @@ class ImageGalleryActivity: BaseActivity(), ImageGalleryView, SwipeRefreshLayout
 
     private fun initViews() {
         refresh_layout.setOnRefreshListener(this)
-        add_first_btn.setOnClickListener { imageGalleryPresenter.onNewPictureClicked() }
-        fab_add.setOnClickListener({ imageGalleryPresenter.onNewPictureClicked() })
+        add_first_btn.setOnClickListener {
+            if (System.currentTimeMillis() - lastClickTime < 1000) {
+                return@setOnClickListener
+            }
+            lastClickTime = System.currentTimeMillis()
+            imageGalleryPresenter.onNewPictureClicked()
+        }
+        fab_add.setOnClickListener({
+            if (System.currentTimeMillis() - lastClickTime < 1000) {
+                return@setOnClickListener
+            }
+            lastClickTime = System.currentTimeMillis()
+            imageGalleryPresenter.onNewPictureClicked()
+        })
         gallery_recycler_view.adapter = GalleryAdapter(this)
         fab_add.invalidate()
         refresh_layout.isRefreshing = loading
@@ -197,9 +205,6 @@ class ImageGalleryActivity: BaseActivity(), ImageGalleryView, SwipeRefreshLayout
 
     override fun addNewImage() {
         if (!loading) {
-//            ImagePicker.create(this)
-//                    .single()
-//                    .start();
             CropImage.activity()
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .start(this);
@@ -209,13 +214,6 @@ class ImageGalleryActivity: BaseActivity(), ImageGalleryView, SwipeRefreshLayout
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == RC_AUTH && resultCode == Activity.RESULT_OK) {
             refresh()
-        }
-
-        if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
-            val image = ImagePicker.getFirstImageOrNull(data)
-            image?.let {
-                CropImage.activity(Uri.parse(image.path)).start(this)
-            }
         }
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
