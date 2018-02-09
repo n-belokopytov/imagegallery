@@ -20,7 +20,7 @@ I did my best to structure code in a way that would later allow modular iteratio
 - It's lacking pinch-to-zoom feature, which I anticipate would raise more engagement
 - There is no thumbnail loading at this point for the gallery view, which causes hits in performance
 - Infinite scrolling is not present due to Firebase complexity in this use-case, the benefit of having it at the launch is small though
-- Codebase is not covered in tests, which would cause friction in onboarding new engineers, should be gradually fixed as features get finilised
+- Codebase is not covered in tests, which would cause friction in onboarding new engineers, should be gradually fixed as features get finalised
 
 
 ## Architecture
